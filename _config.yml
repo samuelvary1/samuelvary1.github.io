@@ -3,11 +3,11 @@
 # ----------------------- #
 
 url: http://samuelvary1.github.io
-title: Don't Panic!
+title: Don't Panic
 subtitle: Sam Vary's blog about the meaning of programming (and life in general)
 author: Sam Vary
 simple_search: https://www.google.com/search
-description: Here I'll reflect on my journey as I progress through my coursework as a student at the Flatiron School.
+description: Here I'll reflect on my journey as I progress through the coursework as a student at the Flatiron School.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
