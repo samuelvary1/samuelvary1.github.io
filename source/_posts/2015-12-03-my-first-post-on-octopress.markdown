@@ -6,4 +6,6 @@ comments: true
 categories: "Flatiron School"
 ---
 
+<img src="http://assets.nydailynews.com/polopoly_fs/1.2064088!/img/httpImage/image.jpg_gen/derivatives/article_635/new-york-mets.jpg">
+
 "Hello, World."
