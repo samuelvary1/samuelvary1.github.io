@@ -3,11 +3,11 @@
 # ----------------------- #
 
 url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+title: Don't Panic!
+subtitle: A blog about the meaning of programming (42)
+author: Sam Vary
 simple_search: https://www.google.com/search
-description:
+description: Here I'll explore the most pressing questions of the universe as it applies to becoming a web developer (and many other interesting topics besides)
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
