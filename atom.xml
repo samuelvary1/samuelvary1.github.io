@@ -4,7 +4,7 @@
   <title><![CDATA[Don't Panic!]]></title>
   <link href="http://samuelvary1.github.io/atom.xml" rel="self"/>
   <link href="http://samuelvary1.github.io/"/>
-  <updated>2015-12-13T19:56:25-05:00</updated>
+  <updated>2015-12-14T09:00:01-05:00</updated>
   <id>http://samuelvary1.github.io/</id>
   <author>
     <name><![CDATA[Sam Vary]]></name>
@@ -172,14 +172,14 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Nice. Now, let&rsquo;s create our new goalie. Superstar Henrik Lundqvist, of course. I&rsquo;m not going to worry about his specific attributes right now, since I just want to focus on bringing him into existence as an instance of the Goalie class, and adding him to the Rangers.</p>
+<p>Now, let&rsquo;s create our new goalie. Superstar Henrik Lundqvist, of course. I&rsquo;m not going to worry about his specific attributes like reflexes and puck control right now, since I just want to focus on bringing him into existence as an instance of the Goalie class, and adding him to the Rangers.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">lundqvist</span> <span class="o">=</span> <span class="no">Goalie</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Henrik Lundqvist&quot;</span><span class="p">,</span> <span class="n">rangers</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Nice, we passed in our team object, rangers, as the argument for Lundqvist&rsquo;s team. Now &lsquo;lundqvist&rsquo; belongs to one team, and that team can have many goalies.</p>
+<p>Nice, we passed in our team object, <code>rangers</code>, as the argument for Lundqvist&rsquo;s team. Now &lsquo;lundqvist&rsquo; belongs to one team, and that team can have many goalies.</p>
 
 <p>The reason this works is because we are actually calling the <code>#add_goalie</code> method on the team argument at the moment that we initialize a new goalie. That method gets called on team, the goalie is shoveled into the team&rsquo;s goalies array, goalie.team is set to self (since self is the team in the context of that instance method), and we also make sure to increment the <code>@@roster_count</code> by one. The methods for adding a skater looks exactly the same, except for different naming of variables, and we run the <code>#add_skater</code> method in the initialize for that class as well.</p>
 
