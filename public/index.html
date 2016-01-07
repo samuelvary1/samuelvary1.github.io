@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Don't Panic!</title>
+  <meta name="author" content="Sam Vary">
+
+  
+  <meta name="description" content="NMap. What is it? Where did it come from? Who wrote it? And why is it so many movies? I am approaching this as someone who is obviously learning &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://samuelvary1.github.io/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Don't Panic!" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Don't Panic!</a></h1>
+  
+    <h2>Sam Vary's blog about programming and life in general.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="samuelvary1.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/01/01/a-brief-history-of-nmap/">A Brief History of NMap</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-01-01T09:31:35-05:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>9:31 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>NMap. What is it? Where did it come from? Who wrote it? And why is it so many movies?</p>
+
+<p>I am approaching this as someone who is obviously learning about NMap (and the concept of scanning in general) for the first time, but as a result I hope this post functions as a completely basic introduction to the tool and the techniques for network scanning that it provides.</p>
+
+<p>Note: For easy installation of Nmap on Mac, go to <a href="https://nmap.org/book/inst-macosx.html">https://nmap.org/book/inst-macosx.html</a> and download and run the .dmg file.</p>
+
+<h2>WHAT IS NMAP?</h2>
+
+<p>NMap is short for Network Mapper. It is essentially a toolbelt full of functionality that allows you to perform network scans. It was designed with the intent of quickly scanning large networks, although you can easily implement it to get information about a single host or target. You can use it to fulfill a wide variety of tasks, including security scans, figure out the services a host is running, &ldquo;fingerprint&rdquo; the operating system and applications on a host, the type of firewall a host is using, or do an inventory of a local network. In other words, Nmap can tell you what computers are currently connected to your local network, and target certain computers to provide you with a lot of information about them. Nmap has the ability to scan huge networks the serve hundreds of thousands of computers, or you can scan your family&rsquo;s computers when you&rsquo;re connected to your WiFi network at home. It can be used for good, or for evil. Nmap is one of the best ways for malicious hackers to determine what ports are open on a system, but it also works great for ethical hacking, in terms of discovering &lsquo;unlocked doors&rsquo; or security flaws on a network and finding ways to properly address those vulnerabilities.</p>
+
+<p>So what exactly is scanning, you might ask. Scanning is a method for discovering &lsquo;exploitable communication channels&rsquo;, by sending out probes to as many listeners as possible, and then keeping track of ones that are receptive and useful to your purposes. Nmap provides a number of techniques to determine what ports of a host are listening for connections. A good analogy is the concept of massive telemarketing or snail mail campaigns for advertising purposes. You send a brochure or place a phone call to literally every number or address you have. If there is no response, you continue on to the next one. But the people who answer the phone, or reply to your brochure - you keep track of those responses and gather information on them.</p>
+
+<p>Nmap works by sending specially crafted data packets to ports, and analyzing the responses from ones that are open. A port is just an entry point to a network server. A port is associated with an IP address (of the host computer). You might have run into port conflicts before, when trying to run an app on your local computer. If a port is already in use, you&rsquo;ll get an error if you try to run something else on the same one, since only one process can bind to a specific IP address and port combination using. A port conflict is when multiple programs attempt to bind to the same port numbers on the same IP address using the same transport protocol. When use Nmap to do port scanning, we are attempting to connect to a range of ports in sequence on a single computer. This is the main way that network admins look for possible vulnerabilities to prevent malicious attacks, and it is also the way that evil hackers attempt to perform such attacks.</p>
+
+<p>A host is a computer or other device connected to a computer network.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/12/12/has-many-loves-belongs-to-ruby/">My Heart: Has Many Loves; Belongs to Ruby</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-12-12T14:21:31-05:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>2:21 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For my blog I decided to write a little about the has many / belongs to relationships between classes. I decided to explore this concept in the context of a side project that I&rsquo;ve been tinkering with. I&rsquo;m trying to build an app that should ultimately predict the outcome of NHL games, based on a variety of factors. This should include such factors as who the starting goalies will be, how the teams have performed against each other historically, whether the opposing team has a player who repeatedly scores against the specific opposing goalie, and so on. The app is called the Hockey Oracle and it is definitely going to take the fantasy sports market by storm.</p>
+
+<p>At its most basic level, an individual player belongs to a team. We give the player a <code>team</code> <code>attr_accessor</code>, and then subsequently set that team attribute to an instance of the <code>Team</code> class. On the other end, a team has many players. We enact this relationship by giving teams a goalies or players property upon initialization that is set to an array of goalie or player instances. We add goalies and players to their respective arrays by defining an instance method within the team class called <code>#add_goalie</code> or <code>#add_player</code>.</p>
+
+<p>Anyhoo, I decided to start by setting up three basic classes: <code>Goalie</code>, <code>Skater</code>, and <code>Team</code>. Goalies and Skaters (aka simply Players) belong to a team, while each instance of the <code>Team</code> class &lsquo;has many&rsquo; goalies and skaters. I also created a parent class, <code>Player</code>, which I will use for common methods that goalies and skaters can both inherit.</p>
+
+<p>So let&rsquo;s first take a look at our Goalie class:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Goalie</span> <span class="o">&lt;</span> <span class="no">Player</span>
+</span><span class='line'>  <span class="kp">attr_accessor</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:team</span><span class="p">,</span> <span class="ss">:reflexes</span><span class="p">,</span> <span class="ss">:athleticism</span><span class="p">,</span> <span class="ss">:puck_control</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># these parameters might be good representing a hash with more specific attributes as keys and a number rating as values</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">team</span><span class="o">=</span><span class="kp">nil</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+</span><span class='line'>      <span class="vi">@team</span> <span class="o">=</span> <span class="n">team</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="n">args</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">property</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
+</span><span class='line'>          <span class="nb">self</span><span class="o">.</span><span class="n">public_send</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">property</span><span class="si">}</span><span class="s2">=&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="k">if</span> <span class="n">team</span>
+</span><span class='line'>          <span class="n">team</span><span class="o">.</span><span class="n">add_goalie</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">team_name</span>
+</span><span class='line'>      <span class="nb">self</span><span class="o">.</span><span class="n">team</span><span class="o">.</span><span class="n">name</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I&rsquo;m doing some fun Steven-inspired meta-programming in my initialize method, which lets me take in a hash of the goalie&rsquo;s attributes and corresponding ratings as args. Each attribute gets set to an integer corresponding to their actual perceived skill in that area based on scouting reports. I stole the attribute designations from NHL 16. But I digress.</p>
+
+<p>The first two arguments are more important for our discussion right now: name, which is required, and team, which is optional and will be nil if you don&rsquo;t feel like setting it right away, or the goalie is a free agent or something like that. But let&rsquo;s focus on team. Assuming the goalie has a team, which would be an already-created instance of the Team class, and also assuming you pass it in as an argument instead of letting it remain as nil.</p>
+
+<p>So how do we get a goalie associated with a team? Well, first we had to make sure our Team class was set up. This meant giving team objects their own proper initialize method:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Team</span>
+</span><span class='line'>  <span class="kp">attr_accessor</span> <span class="ss">:name</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="vc">@@roster_count</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+</span><span class='line'>      <span class="vi">@skaters</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>      <span class="vi">@goalies</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">add_goalie</span><span class="p">(</span><span class="n">goalie</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@goalies</span> <span class="o">&lt;&lt;</span> <span class="n">goalie</span>
+</span><span class='line'>      <span class="n">goalie</span><span class="o">.</span><span class="n">team</span> <span class="o">=</span> <span class="nb">self</span>
+</span><span class='line'>      <span class="vc">@@roster_count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="k">def</span> <span class="nf">add_skater</span><span class="p">(</span><span class="n">skater</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@skaters</span> <span class="o">&lt;&lt;</span> <span class="n">skater</span>
+</span><span class='line'>      <span class="n">skater</span><span class="o">.</span><span class="n">team</span> <span class="o">=</span> <span class="nb">self</span>
+</span><span class='line'>      <span class="vc">@@roster_count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">goalies</span>
+</span><span class='line'>      <span class="vi">@goalies</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">goalie</span><span class="o">|</span>
+</span><span class='line'>          <span class="n">goalie</span><span class="o">.</span><span class="n">name</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">skaters</span>
+</span><span class='line'>      <span class="vi">@skaters</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">skater</span><span class="o">|</span>
+</span><span class='line'>          <span class="n">skater</span><span class="o">.</span><span class="n">name</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I set up a class variable, <code>@@roster_count</code>, so we can keep track of the total number of players on a given team, which will come in handy later. Then in my initialize method for <code>Team</code>, I added empty arrays for skaters and goalies. The next thing is, how do we get a goalie to be on a certain team, and enact that relationship? Let&rsquo;s write an <code>#add_goalie</code> method that takes in an argument of an already-created instance of goalie.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">add_goalie</span><span class="p">(</span><span class="n">goalie</span><span class="p">)</span>
+</span><span class='line'>  <span class="vi">@goalies</span> <span class="o">&lt;&lt;</span> <span class="n">goalie</span>
+</span><span class='line'>  <span class="n">goalie</span><span class="o">.</span><span class="n">team</span> <span class="o">=</span> <span class="nb">self</span>
+</span><span class='line'>  <span class="vc">@@roster_count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Once we get that down, we can create team objects. Say we want to make the New York Rangers.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rangers</span> <span class="o">=</span> <span class="no">Team</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;New York Rangers&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, let&rsquo;s create our new goalie. Superstar Henrik Lundqvist, of course. I&rsquo;m not going to worry about his specific attributes like reflexes and puck control right now, since I just want to focus on bringing him into existence as an instance of the Goalie class, and adding him to the Rangers.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">lundqvist</span> <span class="o">=</span> <span class="no">Goalie</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Henrik Lundqvist&quot;</span><span class="p">,</span> <span class="n">rangers</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Nice, we passed in our team object, <code>rangers</code>, as the argument for Lundqvist&rsquo;s team. Now &lsquo;lundqvist&rsquo; belongs to one team, and that team can have many goalies.</p>
+
+<p>The reason this works is because we are actually calling the <code>#add_goalie</code> method on the team argument at the moment that we initialize a new goalie. That method gets called on team, the goalie is shoveled into the team&rsquo;s goalies array, goalie.team is set to self (since self is the team in the context of that instance method), and we also make sure to increment the <code>@@roster_count</code> by one. The methods for adding a skater looks exactly the same, except for different naming of variables, and we run the <code>#add_skater</code> method in the initialize for that class as well.</p>
+
+<p>In this way, I&rsquo;ve set up the preliminary relationship of my hockey prediction app, where teams have many skaters and goalies, and are able to keep track of them and add new ones with a simple adding method, and goalies and skaters belong to a specific team, which can be set based on the code in the two initialize methods for those two classes when each object gets created, assuming you pass in a instance of team as one of the arguments (but you don&rsquo;t have to, since it&rsquo;s easy to set it later).</p>
+
+<p>There are a ton of other aspects to this complex interplay between related classes, but I think this gives an overview of how the relationship gets established at the most basic level, and in the context of my own app that I&rsquo;m working on. I am looking forward to expanding on this as I work to build out my software, and explore the multitude of ways that related classes can reference each other and work together.</p>
+
+<p>Thank you for listening!</p>
+
+<p><img src="https://nesncom.files.wordpress.com/2014/01/835735616-1.gif?w=1136&amp;h=638" alt="alt text" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/01/a-brief-history-of-nmap/">A Brief History of NMap</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/12/has-many-loves-belongs-to-ruby/">My Heart: Has Many Loves; Belongs to Ruby</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Sam Vary -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
