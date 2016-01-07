@@ -10,7 +10,7 @@ For my blog I decided to write a little about the has many / belongs to relation
 
 At its most basic level, an individual player belongs to a team. We give the player a `team` `attr_accessor`, and then subsequently set that team attribute to an instance of the `Team` class. On the other end, a team has many players. We enact this relationship by giving teams a goalies or players property upon initialization that is set to an array of goalie or player instances. We add goalies and players to their respective arrays by defining an instance method within the team class called `#add_goalie` or `#add_player`.
 
-Anyhoo, I decided to start by setting up three basic classes: `Goalie`, `Skater`, and `Team`. Goalies and Forwards (aka simply Players) belong to a team, while each instance of the `Team` class 'has many' goalies and forwards. I also created a parent class, `Player`, which I will use for common methods that goalies and forwards can both inherit.
+Anyhoo, I decided to start by setting up three basic classes: `Goalie`, `Skater`, and `Team`. Goalies and Skaters (aka simply Players) belong to a team, while each instance of the `Team` class 'has many' goalies and skaters. I also created a parent class, `Player`, which I will use for common methods that goalies and skaters can both inherit.
 
 So let's first take a look at our Goalie class:
 
@@ -98,13 +98,13 @@ Once we get that down, we can create team objects. Say we want to make the New Y
 rangers = Team.new("New York Rangers")
 ```
 
-Nice. Now, let's create our new goalie. Superstar Henrik Lundqvist, of course. I'm not going to worry about his specific attributes right now, since I just want to focus on bringing him into existence as an instance of the Goalie class, and adding him to the Rangers.
+Now, let's create our new goalie. Superstar Henrik Lundqvist, of course. I'm not going to worry about his specific attributes like reflexes and puck control right now, since I just want to focus on bringing him into existence as an instance of the Goalie class, and adding him to the Rangers.
 
 ```ruby
 lundqvist = Goalie.new("Henrik Lundqvist", rangers)
 ```
 
-Nice, we passed in our team object, rangers, as the argument for Lundqvist's team. Now 'lundqvist' belongs to one team, and that team can have many goalies. 
+Nice, we passed in our team object, `rangers`, as the argument for Lundqvist's team. Now 'lundqvist' belongs to one team, and that team can have many goalies. 
 
 The reason this works is because we are actually calling the `#add_goalie` method on the team argument at the moment that we initialize a new goalie. That method gets called on team, the goalie is shoveled into the team's goalies array, goalie.team is set to self (since self is the team in the context of that instance method), and we also make sure to increment the `@@roster_count` by one. The methods for adding a skater looks exactly the same, except for different naming of variables, and we run the `#add_skater` method in the initialize for that class as well. 
 
