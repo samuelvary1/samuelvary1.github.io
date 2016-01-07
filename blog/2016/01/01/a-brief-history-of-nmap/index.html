@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>A Brief History of NMap - Don't Panic!</title>
+  <meta name="author" content="Sam Vary">
+
+  
+  <meta name="description" content="NMap. What is it? Where did it come from? Who wrote it? And why is it so many movies? I am approaching this as someone who is obviously learning &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://samuelvary1.github.io/blog/2016/01/01/a-brief-history-of-nmap/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Don't Panic!" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Don't Panic!</a></h1>
+  
+    <h2>Sam Vary's blog about programming and life in general.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="samuelvary1.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">A Brief History of NMap</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-01-01T09:31:35-05:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>9:31 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>NMap. What is it? Where did it come from? Who wrote it? And why is it so many movies?</p>
+
+<p>I am approaching this as someone who is obviously learning about NMap (and the concept of scanning in general) for the first time, but as a result I hope this post functions as a completely basic introduction to the tool and the techniques for network scanning that it provides.</p>
+
+<p>Note: For easy installation of Nmap on Mac, go to <a href="https://nmap.org/book/inst-macosx.html">https://nmap.org/book/inst-macosx.html</a> and download and run the .dmg file.</p>
+
+<h2>WHAT IS NMAP?</h2>
+
+<p>NMap is short for Network Mapper. It is essentially a toolbelt full of functionality that allows you to perform network scans. It was designed with the intent of quickly scanning large networks, although you can easily implement it to get information about a single host or target. You can use it to fulfill a wide variety of tasks, including security scans, figure out the services a host is running, &ldquo;fingerprint&rdquo; the operating system and applications on a host, the type of firewall a host is using, or do an inventory of a local network. In other words, Nmap can tell you what computers are currently connected to your local network, and target certain computers to provide you with a lot of information about them. Nmap has the ability to scan huge networks the serve hundreds of thousands of computers, or you can scan your family&rsquo;s computers when you&rsquo;re connected to your WiFi network at home. It can be used for good, or for evil. Nmap is one of the best ways for malicious hackers to determine what ports are open on a system, but it also works great for ethical hacking, in terms of discovering &lsquo;unlocked doors&rsquo; or security flaws on a network and finding ways to properly address those vulnerabilities.</p>
+
+<p>So what exactly is scanning, you might ask. Scanning is a method for discovering &lsquo;exploitable communication channels&rsquo;, by sending out probes to as many listeners as possible, and then keeping track of ones that are receptive and useful to your purposes. Nmap provides a number of techniques to determine what ports of a host are listening for connections. A good analogy is the concept of massive telemarketing or snail mail campaigns for advertising purposes. You send a brochure or place a phone call to literally every number or address you have. If there is no response, you continue on to the next one. But the people who answer the phone, or reply to your brochure - you keep track of those responses and gather information on them.</p>
+
+<p>Nmap works by sending specially crafted data packets to ports, and analyzing the responses from ones that are open. A port is just an entry point to a network server. A port is associated with an IP address (of the host computer). You might have run into port conflicts before, when trying to run an app on your local computer. If a port is already in use, you&rsquo;ll get an error if you try to run something else on the same one, since only one process can bind to a specific IP address and port combination using. A port conflict is when multiple programs attempt to bind to the same port numbers on the same IP address using the same transport protocol. When use Nmap to do port scanning, we are attempting to connect to a range of ports in sequence on a single computer. This is the main way that network admins look for possible vulnerabilities to prevent malicious attacks, and it is also the way that evil hackers attempt to perform such attacks.</p>
+
+<p>A host is a computer or other device connected to a computer network.</p>
+
+<p>So what is an example of Nmap usage that will make some sort of sense to a noob like me?</p>
+
+<p>Well, when we&rsquo;re using Nmap from the command line, the basic syntax of a command looks like this:</p>
+
+<p>$ nmap <scan type> <options> <target></p>
+
+<p>Everything that isn&rsquo;t an option or an option argument is treated as a specification for the target host. The simplest way to specify a target is by typing in the target&rsquo;s IP address or hostname for scanning.</p>
+
+<p>So maybe I want to see some information about the router that is running the wifi network at my parents' house. I want to see what it says about its operating system. I can go ahead and type:</p>
+
+<p>sudo nmap -O target.host.com</p>
+
+<p>I have to use sudo because nmap requires root privileges, which sudo lets me use. (Even though I&rsquo;m logged in as admin on my computer, I need to be the &lsquo;root user&rsquo; to perform this nmap scan. Sudo will ask me for my laptop password when I hit enter).</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sam Vary</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-01-01T09:31:35-05:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>9:31 am</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://samuelvary1.github.io/blog/2016/01/01/a-brief-history-of-nmap/" data-via="" data-counturl="http://samuelvary1.github.io/blog/2016/01/01/a-brief-history-of-nmap/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/12/12/has-many-loves-belongs-to-ruby/" title="Previous Post: My Heart: Has Many Loves; Belongs to Ruby">&laquo; My Heart: Has Many Loves; Belongs to Ruby</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/01/a-brief-history-of-nmap/">A Brief History of NMap</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/12/has-many-loves-belongs-to-ruby/">My Heart: Has Many Loves; Belongs to Ruby</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Sam Vary -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

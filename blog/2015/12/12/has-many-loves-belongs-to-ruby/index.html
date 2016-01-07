@@ -88,7 +88,7 @@
 
 <p>At its most basic level, an individual player belongs to a team. We give the player a <code>team</code> <code>attr_accessor</code>, and then subsequently set that team attribute to an instance of the <code>Team</code> class. On the other end, a team has many players. We enact this relationship by giving teams a goalies or players property upon initialization that is set to an array of goalie or player instances. We add goalies and players to their respective arrays by defining an instance method within the team class called <code>#add_goalie</code> or <code>#add_player</code>.</p>
 
-<p>Anyhoo, I decided to start by setting up three basic classes: <code>Goalie</code>, <code>Skater</code>, and <code>Team</code>. Goalies and Forwards (aka simply Players) belong to a team, while each instance of the <code>Team</code> class &lsquo;has many&rsquo; goalies and forwards. I also created a parent class, <code>Player</code>, which I will use for common methods that goalies and forwards can both inherit.</p>
+<p>Anyhoo, I decided to start by setting up three basic classes: <code>Goalie</code>, <code>Skater</code>, and <code>Team</code>. Goalies and Skaters (aka simply Players) belong to a team, while each instance of the <code>Team</code> class &lsquo;has many&rsquo; goalies and skaters. I also created a parent class, <code>Player</code>, which I will use for common methods that goalies and skaters can both inherit.</p>
 
 <p>So let&rsquo;s first take a look at our Goalie class:</p>
 
@@ -289,6 +289,8 @@
     <p class="meta">
       
       
+        <a class="basic-alignment right" href="/blog/2016/01/01/a-brief-history-of-nmap/" title="Next Post: A Brief History of NMap">A Brief History of NMap &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -300,6 +302,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/01/a-brief-history-of-nmap/">A Brief History of NMap</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/12/12/has-many-loves-belongs-to-ruby/">My Heart: Has Many Loves; Belongs to Ruby</a>
@@ -319,7 +325,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Sam Vary -
+  Copyright &copy; 2016 - Sam Vary -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
