@@ -114,9 +114,7 @@ There are a ton of other aspects to this complex interplay between related class
 
 Thank you for listening! 
 
-![alt text][funny gif]
-
-[funny gif]: https://nesncom.files.wordpress.com/2014/01/835735616-1.gif?w=1136&h=638
+{% img center https://nesncom.files.wordpress.com/2014/01/835735616-1.gif?w=1136&h=638 %}
 
 
 

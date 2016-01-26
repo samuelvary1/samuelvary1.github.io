@@ -4,7 +4,7 @@
   <title><![CDATA[Don't Panic!]]></title>
   <link href="http://samuelvary1.github.io/atom.xml" rel="self"/>
   <link href="http://samuelvary1.github.io/"/>
-  <updated>2016-01-01T11:24:04-05:00</updated>
+  <updated>2016-01-26T09:49:39-05:00</updated>
   <id>http://samuelvary1.github.io/</id>
   <author>
     <name><![CDATA[Sam Vary]]></name>
@@ -14,25 +14,86 @@
 
   
   <entry>
-    <title type="html"><![CDATA[A Brief History of NMap]]></title>
+    <title type="html"><![CDATA[Online Gaming: JavaScript, Flash, and More!]]></title>
+    <link href="http://samuelvary1.github.io/blog/2016/01/25/online-gaming-javascript/"/>
+    <updated>2016-01-25T10:31:16-05:00</updated>
+    <id>http://samuelvary1.github.io/blog/2016/01/25/online-gaming-javascript</id>
+    <content type="html"><![CDATA[<p>Computer games have come a long way over the past few decades, to put it very mildly. Multiplayer gaming has become a focal point of the entire industry, at least in terms of big-budget PC games and console systems. There have also been huge advancements in games that make use of Adobe Flash Player and JavaScript to provide fun, addicting games that you can play right in your browser. Browser-based gaming has come a long way, to the point where we can even play games like Unreal Tournament directly in the browser using technology that compiles the code fast enough to play.</p>
+
+<p>Nowadays it&rsquo;s hard to imagine a game that doesn&rsquo;t implement some sort of web-based functionality, whether you&rsquo;re posting your high scores for Candy Crush, or you&rsquo;re playing a Battlefield 4 conquest mission in a 64-player free-for-all. Much of the time this functionality takes on the form of multiplayer gameplay, i.e. competing with other players remotely via a designated server for the game.</p>
+
+<p>So when did game designers first try to make games that were playable on a network? Well, the first several examples of actual multiplayer games actually pre-dated the Internet. It all began with a game called &lsquo;Empire&rsquo;, which was created in 1973 by a guy named John Daleske while he was a student at Iowa State University.</p>
+
+<p><img class="center" src="http://www.daleske.com/plato/images/empire3-title.png"></p>
+
+<p>Anyway, Empire allowed players to compete against one another in a space combat simulator over a network called PLATO. PLATO stands for Programmed Logic for Automatic Teaching Operations. It came about in around 1960 at the University of Illinois, as a system of graphics terminals (think early desktop PCs) supported by about a dozen networked mainframe computers. PLATO has a fascinating history that I don&rsquo;t want to delve into too deeply right now, but the development of the system formed the basis for some of our most beloved internet features. By 1976, PLATO had support for primitive versions of e-mail, chat rooms, instant messaging, remote screen sharing, and even emoticons. It also provided the basis for multiplayer gaming, starting with Empire, but expanding to many other types of games throughout the 70s and 80s. Empire went through several different iterations, and by the time Empire IV came out in 1977, they had even given players the ability to live chat with one another. Just to give you some idea of the gameplay, players did not have a mouse, and had to enter all commands via typing. The commands involved punching in coordinates for course changes, and firing weapons based on user-entered degree headings. The object of the game was to conquer the galaxy, naturally, and up to 30 players could be in the game at once, engaging in dogfights against one another to try and gain a foothold in the galactic battle.</p>
+
+<p>Now, skipping ahead to the 1990s, you had some major players come on the scene in terms of multiplayer gaming. Arguably the biggest title out of all of these was Doom, which if you&rsquo;re not familiar is a sci-fi / horror themed first-person shooter that came out in 1993. Some say it is the greatest PC game of all time, but that&rsquo;s a matter of opinion. Doom was created by my favorite programmer John Carmack (he also was behind Commander Keen, Wolfenstein 3D, and Quake), and the game was immediately notable for its markedly improved 3D graphics and exciting, imaginative gameplay and storyline. Anyway, as it relates to multiplayer gaming, Doom had a competitive online mode that ran over something called the DWANGO network, which was an online gaming platform launched in 1994. It became known right off the bat for its compatibility with Doom, and it served as a service to match up players looking to compete. Since this was before the actual Internet, the way it worked was players would pay a fee and run the DWANGO client software to connect to a DWANGO server by dialing a phone number in Houston, Texas. DWANGO is actually a thriving telecom company in Japan to this day. Despite the (to our standards) primitive interface, DWANGO actually allowed players to chat in a lobby, organize games, and connect to play Doom together, among many other games that soon came to be supported as well.</p>
+
+<p><img class="center" src="http://i.onionstatic.com/avclub/5159/94/16x9/960.jpg"></p>
+
+<p>So aside from Empire and Doom, what represented the next major leap forward in online gaming? Some say Quake, which was another first-person shooter that made online play an integral part of the product, rather than treating it as an add-on as with Doom, but let&rsquo;s talk about the year 2000 for a second. I would argue that the year 2000 ushered in the real modern epoch of online gaming, with two of the most popular PC titles ever made, ones that rival Doom in terms of legendary reputation amongst gamers. I&rsquo;m talking of course about Diablo 2 and Counter-Strike. Counter-Strike was actually a third-party mod of the game Half-Life. Even though the only way to play the game was online, it sold well over 4 million copies, along with countless copies that came free with the purchase of Half-Life. As for Diablo 2, it actually claimed a Guiness World Record for the fast selling computer game of all time, selling over a million copies in 2 weeks. Besides the speed at which it flew off the shelves, Diablo 2 was notable because it allowed a player to use their local player in online matches. Based on these two games, it was clear that competitive online multiplayer was here to stay.</p>
+
+<p><img class="center" src="http://cdn.akamai.steamstatic.com/steam/apps/10/0000000135.600x338.jpg?t=1447887426"></p>
+
+<p>So what else happened? Well, big budget titles have continued to come out of course, and as I said at the beginning, it&rsquo;s hard to imagine any current game or system that does not rely on the internet in some way as part of its core user experience. I sort of ran out of time to talk too much about browser-based gaming, but I thought Steven&rsquo;s example of playing Quake directly in the browser was very interesting, so I wanted to take a slightly closer look at that. If you go to quakejs.com, you&rsquo;ll find one brilliant programmer&rsquo;s project to port Quake 3 directly into JavaScript, using something called ioquake3, which is the engine that allows the programmer to work with, modify, and run the source code of that particular game.</p>
+
+<p>So, the game itself was written in C, which is interesting for a few reasons. C++ would have been the other, possibly more logical choice, but it only came out about a year before Quake 3 came out, so the developers had pretty much already done about half the work on the game before that actually came out. Speaking of the dev team, John Carmack led the way again, and he has stated that Quake 3 was his favorite game he ever worked on.</p>
+
+<p>At any rate, QuakeJS uses a compiler called Emscripten to take that C source code from the game, and compile it directly to JavaScript, which then of course lets you run the game in our fancy modern browsers. Pretty cool right? Since Quake 3 contains several dynamic libraries such as OpenGL for its graphics, Emscripten also contains versions of these libraries translated into pure JavaScript. Emscripten then links these in and relies upon current, powerful HTML5 technology to find the right counterpart. The fact that this one guy (his name is Anthony Pesch) figured out a way to completely port a game like Quake 3 into a browser using JavaScript is pretty impressive, and his write-up of how he did it goes way beyond my actual ability to discuss, but I encourage you to try out the game and check out his blog post to get a sense of how compilers work with JavaScript.</p>
+
+<p>Resources:</p>
+
+<p><a href="http://www.pcmag.com/article2/0,2817,2390917,00.asp">&ldquo;A Massive History of Multiplayer Online Gaming</a>
+<a href="http://ioquake3.org/">ioquake3 Engine</a><br>
+<a href="http://kripken.github.io/emscripten-site/">Emscripten Site</a><br>
+<a href="http://www.inolen.com/articles/compiling-quake-3-virtual-machines-to-javascript/">Anthony Pesch&rsquo;s Blog Post on porting Quake 3</a><br>
+<a href="http://www.quakejs.com/">QuakeJS</a><br></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A Brief Intro to Nmap]]></title>
     <link href="http://samuelvary1.github.io/blog/2016/01/01/a-brief-history-of-nmap/"/>
     <updated>2016-01-01T09:31:35-05:00</updated>
     <id>http://samuelvary1.github.io/blog/2016/01/01/a-brief-history-of-nmap</id>
-    <content type="html"><![CDATA[<p>NMap. What is it? Where did it come from? Who wrote it? And why is it so many movies?</p>
+    <content type="html"><![CDATA[<p>Nmap. What is it? Where did it come from? Who wrote it? And why is it so many movies?</p>
 
-<p>I am approaching this as someone who is obviously learning about NMap (and the concept of scanning in general) for the first time, but as a result I hope this post functions as a completely basic introduction to the tool and the techniques for network scanning that it provides.</p>
+<p>I am approaching this as someone who is obviously learning about Nmap (and the concept of scanning in general) for the first time, but as a result I hope this post functions as a completely basic introduction to the tool and the techniques for network scanning that it provides.</p>
 
-<p>Note: For easy installation of Nmap on Mac, go to <a href="https://nmap.org/book/inst-macosx.html">https://nmap.org/book/inst-macosx.html</a> and download and run the .dmg file.</p>
+<p>Note: For easy installation of Nmap on Mac, go to <a href="https://Nmap.org/book/inst-macosx.html">https://Nmap.org/book/inst-macosx.html</a> and download and run the .dmg file.</p>
 
 <h2>WHAT IS NMAP?</h2>
 
-<p>NMap is short for Network Mapper. It is essentially a toolbelt full of functionality that allows you to perform network scans. It was designed with the intent of quickly scanning large networks, although you can easily implement it to get information about a single host or target. You can use it to fulfill a wide variety of tasks, including security scans, figure out the services a host is running, &ldquo;fingerprint&rdquo; the operating system and applications on a host, the type of firewall a host is using, or do an inventory of a local network. In other words, Nmap can tell you what computers are currently connected to your local network, and target certain computers to provide you with a lot of information about them. Nmap has the ability to scan huge networks the serve hundreds of thousands of computers, or you can scan your family&rsquo;s computers when you&rsquo;re connected to your WiFi network at home. It can be used for good, or for evil. Nmap is one of the best ways for malicious hackers to determine what ports are open on a system, but it also works great for ethical hacking, in terms of discovering &lsquo;unlocked doors&rsquo; or security flaws on a network and finding ways to properly address those vulnerabilities.</p>
+<p>Nmap is short for Network Mapper. It is essentially a toolbelt full of functionality that allows you to perform network scans. It was designed with the intent of quickly scanning large networks - picture using Nmap to scan hundreds of thousands of computers connected to the same network - or you can use it to gather information on only a few target computers.</p>
 
-<p>So what exactly is scanning, you might ask. Scanning is a method for discovering &lsquo;exploitable communication channels&rsquo;, by sending out probes to as many listeners as possible, and then keeping track of ones that are receptive and useful to your purposes. Nmap provides a number of techniques to determine what ports of a host are listening for connections. A good analogy is the concept of massive telemarketing or snail mail campaigns for advertising purposes. You send a brochure or place a phone call to literally every number or address you have. If there is no response, you continue on to the next one. But the people who answer the phone, or reply to your brochure - you keep track of those responses and gather information on them.</p>
+<p>When most programmers hear the term Nmap, they immediately think of a tool for scanning servers and finding which ports are open, and subsequently attacking them. But Nmap can be used for good just as effectively as it can be used for evil.</p>
 
-<p>Nmap works by sending specially crafted data packets to ports, and analyzing the responses from ones that are open. A port is just an entry point to a network server. A port is associated with an IP address (of the host computer). You might have run into port conflicts before, when trying to run an app on your local computer. If a port is already in use, you&rsquo;ll get an error if you try to run something else on the same one, since only one process can bind to a specific IP address and port combination using. A port conflict is when multiple programs attempt to bind to the same port numbers on the same IP address using the same transport protocol. When use Nmap to do port scanning, we are attempting to connect to a range of ports in sequence on a single computer. This is the main way that network admins look for possible vulnerabilities to prevent malicious attacks, and it is also the way that evil hackers attempt to perform such attacks.</p>
+<p><img class="center" src="http://25.media.tumblr.com/tumblr_m3bqcrcAaF1qabfx1o2_500.gif"></p>
 
-<p>A host is a computer or other device connected to a computer network.</p>
+<p>Nmap is able to fulfill a variety of tasks, including security scans, figure out the services a host is running, &ldquo;fingerprinting&rdquo; the operating system and applications on a host, the type of firewall a host is using, or do an inventory of a local network. As I mentioned, it is one of the best ways for malicious hackers to determine what ports are open on a system, but it also works great for ethical hacking, in terms of discovering &lsquo;unlocked doors&rsquo; or security flaws on a network and finding ways to properly address those vulnerabilities. Different tasks require different permissions, and I&rsquo;ve read about Nmap being likened to a box of dynamite - it&rsquo;s incredibly powerful, but if you don&rsquo;t know what you&rsquo;re doing you can blow your foot off.</p>
+
+<p><img class="center" src="http://www.filmfodder.com/tv/lost/archives/Lost_Arzt.jpg"></p>
+
+<p>You can&rsquo;t run around scannin' everything you dang please! Security professionals will not appreciate your unauthorized probings of their networks. However, if you have permission, and you know what you&rsquo;re doing, Nmap has the ability to scan huge networks the serve hundreds of thousands of computers, or you can scan your family&rsquo;s computers when you&rsquo;re connected to your WiFi network at home.</p>
+
+<p>Nmap works by sending specially crafted data packets to ports, and analyzing the responses from ones that are open. The metaphor I came across most frequently is that it&rsquo;s like sending out mass mailers to customers. You place a brochure in every mailbox in the neighborhood, and most people ignore it (closed ports). However, a few people reply to the brochure, and you can then analyze their responses and pay special attention to those, and just forget about the people who ignored your attempts to reach out.</p>
+
+<h2>Who invented it?</h2>
+
+<p><img class="center" src="https://pbs.twimg.com/profile_images/1360368660/Defcon18-Fyodor-Presenting-573x573.jpg"></p>
+
+<p>This is Gordon Lyon, the inventor of Nmap. He&rsquo;s pretty smart. He often operates online under the alias of Fyodor Vaskovich, in honor of Dostoevsky, and he&rsquo;s incredibly active in the ethical hacking community even to this day. He released Nmap (open source of course) in 1997, and has spent the past couple of decades developing it and other security-related projects. He even wrote a thriller novel with highly accurate depictions of hacking, and appeared in a comic book where he saves a kidnapped Nmap developer from a criminal organization that was intent on forcing him to hack for evil.</p>
+
+<p><img class="center" src="http://fpix.us/pics_me/clustermind_pp44.jpg"></p>
+
+<p>Lastly, one of the coolest things about Nmap is the number of movies it has appeared in. As Steven mentioned when he gave us a brief intro to Nmap, at some point Hollywood and other film industries decided Nmap was the most hacker-like thing they could put on screen to give the movie that touch of realism, and they&rsquo;re not wrong.</p>
+
+<p>Possibly the most famous example comes from the Matrix Reloaded, where Trinity uses Nmap to find a vulnerable SSH server to hack the city power grid and help Neo out. She even uses a realworld loophole to exploit the server.</p>
+
+<p><img class="center" src="http://linuxzone.es/app/uploads/2011/08/matrix-linux.png"></p>
+
+<p>You can check out the other movies it has appeared in here, and generally learn more about Nmap on its official site, www.nmap.org.</p>
 ]]></content>
   </entry>
   
@@ -212,7 +273,7 @@
 
 <p>Thank you for listening!</p>
 
-<p><img src="https://nesncom.files.wordpress.com/2014/01/835735616-1.gif?w=1136&amp;h=638" alt="alt text" /></p>
+<p><img class="center" src="https://nesncom.files.wordpress.com/2014/01/835735616-1.gif?w=1136&h=638"></p>
 ]]></content>
   </entry>
   

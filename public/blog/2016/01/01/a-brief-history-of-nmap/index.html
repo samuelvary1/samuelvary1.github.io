@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>A Brief History of NMap - Don't Panic!</title>
+  <title>A Brief Intro to Nmap - Don't Panic!</title>
   <meta name="author" content="Sam Vary">
 
   
-  <meta name="description" content="NMap. What is it? Where did it come from? Who wrote it? And why is it so many movies? I am approaching this as someone who is obviously learning &hellip;">
+  <meta name="description" content="Nmap. What is it? Where did it come from? Who wrote it? And why is it so many movies? I am approaching this as someone who is obviously learning &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">A Brief History of NMap</h1>
+      <h1 class="entry-title">A Brief Intro to Nmap</h1>
     
     
       <p class="meta">
@@ -84,21 +84,43 @@
   </header>
 
 
-<div class="entry-content"><p>NMap. What is it? Where did it come from? Who wrote it? And why is it so many movies?</p>
+<div class="entry-content"><p>Nmap. What is it? Where did it come from? Who wrote it? And why is it so many movies?</p>
 
-<p>I am approaching this as someone who is obviously learning about NMap (and the concept of scanning in general) for the first time, but as a result I hope this post functions as a completely basic introduction to the tool and the techniques for network scanning that it provides.</p>
+<p>I am approaching this as someone who is obviously learning about Nmap (and the concept of scanning in general) for the first time, but as a result I hope this post functions as a completely basic introduction to the tool and the techniques for network scanning that it provides.</p>
 
-<p>Note: For easy installation of Nmap on Mac, go to <a href="https://nmap.org/book/inst-macosx.html">https://nmap.org/book/inst-macosx.html</a> and download and run the .dmg file.</p>
+<p>Note: For easy installation of Nmap on Mac, go to <a href="https://Nmap.org/book/inst-macosx.html">https://Nmap.org/book/inst-macosx.html</a> and download and run the .dmg file.</p>
 
 <h2>WHAT IS NMAP?</h2>
 
-<p>NMap is short for Network Mapper. It is essentially a toolbelt full of functionality that allows you to perform network scans. It was designed with the intent of quickly scanning large networks, although you can easily implement it to get information about a single host or target. You can use it to fulfill a wide variety of tasks, including security scans, figure out the services a host is running, &ldquo;fingerprint&rdquo; the operating system and applications on a host, the type of firewall a host is using, or do an inventory of a local network. In other words, Nmap can tell you what computers are currently connected to your local network, and target certain computers to provide you with a lot of information about them. Nmap has the ability to scan huge networks the serve hundreds of thousands of computers, or you can scan your family&rsquo;s computers when you&rsquo;re connected to your WiFi network at home. It can be used for good, or for evil. Nmap is one of the best ways for malicious hackers to determine what ports are open on a system, but it also works great for ethical hacking, in terms of discovering &lsquo;unlocked doors&rsquo; or security flaws on a network and finding ways to properly address those vulnerabilities.</p>
+<p>Nmap is short for Network Mapper. It is essentially a toolbelt full of functionality that allows you to perform network scans. It was designed with the intent of quickly scanning large networks - picture using Nmap to scan hundreds of thousands of computers connected to the same network - or you can use it to gather information on only a few target computers.</p>
 
-<p>So what exactly is scanning, you might ask. Scanning is a method for discovering &lsquo;exploitable communication channels&rsquo;, by sending out probes to as many listeners as possible, and then keeping track of ones that are receptive and useful to your purposes. Nmap provides a number of techniques to determine what ports of a host are listening for connections. A good analogy is the concept of massive telemarketing or snail mail campaigns for advertising purposes. You send a brochure or place a phone call to literally every number or address you have. If there is no response, you continue on to the next one. But the people who answer the phone, or reply to your brochure - you keep track of those responses and gather information on them.</p>
+<p>When most programmers hear the term Nmap, they immediately think of a tool for scanning servers and finding which ports are open, and subsequently attacking them. But Nmap can be used for good just as effectively as it can be used for evil.</p>
 
-<p>Nmap works by sending specially crafted data packets to ports, and analyzing the responses from ones that are open. A port is just an entry point to a network server. A port is associated with an IP address (of the host computer). You might have run into port conflicts before, when trying to run an app on your local computer. If a port is already in use, you&rsquo;ll get an error if you try to run something else on the same one, since only one process can bind to a specific IP address and port combination using. A port conflict is when multiple programs attempt to bind to the same port numbers on the same IP address using the same transport protocol. When use Nmap to do port scanning, we are attempting to connect to a range of ports in sequence on a single computer. This is the main way that network admins look for possible vulnerabilities to prevent malicious attacks, and it is also the way that evil hackers attempt to perform such attacks.</p>
+<p><img class="center" src="http://25.media.tumblr.com/tumblr_m3bqcrcAaF1qabfx1o2_500.gif"></p>
 
-<p>A host is a computer or other device connected to a computer network.</p>
+<p>Nmap is able to fulfill a variety of tasks, including security scans, figure out the services a host is running, &ldquo;fingerprinting&rdquo; the operating system and applications on a host, the type of firewall a host is using, or do an inventory of a local network. As I mentioned, it is one of the best ways for malicious hackers to determine what ports are open on a system, but it also works great for ethical hacking, in terms of discovering &lsquo;unlocked doors&rsquo; or security flaws on a network and finding ways to properly address those vulnerabilities. Different tasks require different permissions, and I&rsquo;ve read about Nmap being likened to a box of dynamite - it&rsquo;s incredibly powerful, but if you don&rsquo;t know what you&rsquo;re doing you can blow your foot off.</p>
+
+<p><img class="center" src="http://www.filmfodder.com/tv/lost/archives/Lost_Arzt.jpg"></p>
+
+<p>You can&rsquo;t run around scannin' everything you dang please! Security professionals will not appreciate your unauthorized probings of their networks. However, if you have permission, and you know what you&rsquo;re doing, Nmap has the ability to scan huge networks the serve hundreds of thousands of computers, or you can scan your family&rsquo;s computers when you&rsquo;re connected to your WiFi network at home.</p>
+
+<p>Nmap works by sending specially crafted data packets to ports, and analyzing the responses from ones that are open. The metaphor I came across most frequently is that it&rsquo;s like sending out mass mailers to customers. You place a brochure in every mailbox in the neighborhood, and most people ignore it (closed ports). However, a few people reply to the brochure, and you can then analyze their responses and pay special attention to those, and just forget about the people who ignored your attempts to reach out.</p>
+
+<h2>Who invented it?</h2>
+
+<p><img class="center" src="https://pbs.twimg.com/profile_images/1360368660/Defcon18-Fyodor-Presenting-573x573.jpg"></p>
+
+<p>This is Gordon Lyon, the inventor of Nmap. He&rsquo;s pretty smart. He often operates online under the alias of Fyodor Vaskovich, in honor of Dostoevsky, and he&rsquo;s incredibly active in the ethical hacking community even to this day. He released Nmap (open source of course) in 1997, and has spent the past couple of decades developing it and other security-related projects. He even wrote a thriller novel with highly accurate depictions of hacking, and appeared in a comic book where he saves a kidnapped Nmap developer from a criminal organization that was intent on forcing him to hack for evil.</p>
+
+<p><img class="center" src="http://fpix.us/pics_me/clustermind_pp44.jpg"></p>
+
+<p>Lastly, one of the coolest things about Nmap is the number of movies it has appeared in. As Steven mentioned when he gave us a brief intro to Nmap, at some point Hollywood and other film industries decided Nmap was the most hacker-like thing they could put on screen to give the movie that touch of realism, and they&rsquo;re not wrong.</p>
+
+<p>Possibly the most famous example comes from the Matrix Reloaded, where Trinity uses Nmap to find a vulnerable SSH server to hack the city power grid and help Neo out. She even uses a realworld loophole to exploit the server.</p>
+
+<p><img class="center" src="http://linuxzone.es/app/uploads/2011/08/matrix-linux.png"></p>
+
+<p>You can check out the other movies it has appeared in here, and generally learn more about Nmap on its official site, www.nmap.org.</p>
 </div>
 
 
@@ -134,6 +156,8 @@
         <a class="basic-alignment left" href="/blog/2015/12/12/has-many-loves-belongs-to-ruby/" title="Previous Post: My Heart: Has Many Loves; Belongs to Ruby">&laquo; My Heart: Has Many Loves; Belongs to Ruby</a>
       
       
+        <a class="basic-alignment right" href="/blog/2016/01/25/online-gaming-javascript/" title="Next Post: Online Gaming: JavaScript, Flash, and more!">Online Gaming: JavaScript, Flash, and more! &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -147,7 +171,11 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2016/01/01/a-brief-history-of-nmap/">A Brief History of NMap</a>
+        <a href="/blog/2016/01/25/online-gaming-javascript/">Online Gaming: JavaScript, Flash, and More!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/01/a-brief-history-of-nmap/">A Brief Intro to Nmap</a>
       </li>
     
       <li class="post">
