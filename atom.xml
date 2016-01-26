@@ -4,7 +4,7 @@
   <title><![CDATA[Don't Panic!]]></title>
   <link href="http://samuelvary1.github.io/atom.xml" rel="self"/>
   <link href="http://samuelvary1.github.io/"/>
-  <updated>2016-01-26T09:56:23-05:00</updated>
+  <updated>2016-01-26T10:01:02-05:00</updated>
   <id>http://samuelvary1.github.io/</id>
   <author>
     <name><![CDATA[Sam Vary]]></name>
@@ -18,7 +18,7 @@
     <link href="http://samuelvary1.github.io/blog/2016/01/25/online-gaming-javascript/"/>
     <updated>2016-01-25T10:31:16-05:00</updated>
     <id>http://samuelvary1.github.io/blog/2016/01/25/online-gaming-javascript</id>
-    <content type="html"><![CDATA[<p>Computer games have come a long way over the past few decades, to put it very mildly. Multiplayer gaming has become a focal point of the entire industry, at least in terms of big-budget PC games and console systems. There have also been huge advancements in games that make use of Adobe Flash Player and JavaScript to provide fun, addicting games that you can play right in your browser. Browser-based gaming has come a long way, to the point where we can even play games like Unreal Tournament directly in the browser using technology that compiles the code fast enough to play.</p>
+    <content type="html"><![CDATA[<p>Computer games have come a long way over the past few decades, to put it very mildly. Multiplayer gaming has become a focal point of the entire industry, at least in terms of big-budget PC games and console systems. There have also been huge advancements in games that make use of Adobe Flash Player and JavaScript to provide fun, addicting games that you can play right in your browser. Browser-based gaming has come a long way, to the point where we can even play games like Quake 3 directly in the browser using technology that compiles the code fast enough to play.</p>
 
 <p>Nowadays it&rsquo;s hard to imagine a game that doesn&rsquo;t implement some sort of web-based functionality, whether you&rsquo;re posting your high scores for Candy Crush, or you&rsquo;re playing a Battlefield 4 conquest mission in a 64-player free-for-all. Much of the time this functionality takes on the form of multiplayer gameplay, i.e. competing with other players remotely via a designated server for the game.</p>
 
