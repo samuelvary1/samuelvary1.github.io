@@ -4,7 +4,7 @@
   <title><![CDATA[Don't Panic!]]></title>
   <link href="http://samuelvary1.github.io/atom.xml" rel="self"/>
   <link href="http://samuelvary1.github.io/"/>
-  <updated>2016-02-16T09:53:10-05:00</updated>
+  <updated>2016-02-16T09:54:12-05:00</updated>
   <id>http://samuelvary1.github.io/</id>
   <author>
     <name><![CDATA[Sam Vary]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[TBD Technical Blog Entry]]></title>
+    <title type="html"><![CDATA[Using Ember Simple Auth to Add Sessions to Your Ember App]]></title>
     <link href="http://samuelvary1.github.io/blog/2016/02/15/tbd-technical-blog-entry/"/>
     <updated>2016-02-15T20:26:46-05:00</updated>
     <id>http://samuelvary1.github.io/blog/2016/02/15/tbd-technical-blog-entry</id>
