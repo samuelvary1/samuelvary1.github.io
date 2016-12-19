@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: flatiron | Don't Panic]]></title>
+  <link href="http://samuelvary1.github.io/blog/categories/flatiron/atom.xml" rel="self"/>
+  <link href="http://samuelvary1.github.io/"/>
+  <updated>2016-12-19T17:55:59-05:00</updated>
+  <id>http://samuelvary1.github.io/</id>
+  <author>
+    <name><![CDATA[Sam Vary]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[My First Post On Octopress]]></title>
+    <link href="http://samuelvary1.github.io/blog/2015/12/03/my-first-post-on-octopress/"/>
+    <updated>2015-12-03T13:21:09-05:00</updated>
+    <id>http://samuelvary1.github.io/blog/2015/12/03/my-first-post-on-octopress</id>
+    <content type="html"><![CDATA[<p><img class="round" src="http://assets.nydailynews.com/polopoly_fs/1.2064088!/img/httpImage/image.jpg_gen/derivatives/article_635/new-york-mets.jpg"></p>
+
+<p>&ldquo;Here&rsquo;s where my first blog post will go. Start figuring out what you&rsquo;re going to write about, and then worry about formatting it a bit better.&rdquo;</p>
+]]></content>
+  </entry>
+  
+</feed>
