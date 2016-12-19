@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+<<<<<<< HEAD
     <loc>http://samuelvary1.github.io/blog/2015/12/03/my-first-post-on-octopress/</loc>
     <lastmod>2015-12-03T13:21:09-05:00</lastmod>
   </url>
@@ -15,5 +16,27 @@
   </url>
   <url>
     <loc>http://samuelvary1.github.io/blog/categories/school/</loc>
+=======
+    <loc>http://samuelvary1.github.io/blog/2016/02/15/tbd-technical-blog-entry/</loc>
+    <lastmod>2016-02-15T20:26:46-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://samuelvary1.github.io/blog/2016/01/25/online-gaming-javascript/</loc>
+    <lastmod>2016-01-25T10:31:16-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://samuelvary1.github.io/blog/2016/01/01/a-brief-history-of-nmap/</loc>
+    <lastmod>2016-01-01T09:31:35-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://samuelvary1.github.io/blog/2015/12/12/has-many-loves-belongs-to-ruby/</loc>
+    <lastmod>2015-12-12T14:21:31-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://samuelvary1.github.io/blog/archives/</loc>
+  </url>
+  <url>
+    <loc>http://samuelvary1.github.io/</loc>
+>>>>>>> 22f22931699f4341acb6ded97bc63d4cc01f4938
   </url>
 </urlset>

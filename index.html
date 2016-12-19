@@ -9,8 +9,12 @@
   <meta name="author" content="Sam Vary">
 
   
+<<<<<<< HEAD
   <meta name="description" content="&ldquo;Hello, World.&rdquo;
 ">
+=======
+  <meta name="description" content="I think my blog could do with a bit of focus for my next entry, so I decided to pick a more technical topic and hone in on something that was giving &hellip;">
+>>>>>>> 22f22931699f4341acb6ded97bc63d4cc01f4938
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -39,7 +43,11 @@
   <header role="banner"><hgroup>
   <h1><a href="/">Don't Panic!</a></h1>
   
+<<<<<<< HEAD
     <h2>A blog about the meaning of programming (42)</h2>
+=======
+    <h2>Sam Vary's blog about programming and life in general.</h2>
+>>>>>>> 22f22931699f4341acb6ded97bc63d4cc01f4938
   
 </hgroup>
 
@@ -72,7 +80,11 @@
       
   <header>
     
+<<<<<<< HEAD
       <h1 class="entry-title"><a href="/blog/2015/12/03/my-first-post-on-octopress/">My First Post on Octopress</a></h1>
+=======
+      <h1 class="entry-title"><a href="/blog/2016/02/15/tbd-technical-blog-entry/">Using Ember Simple Auth to Add Sessions to Your Ember App</a></h1>
+>>>>>>> 22f22931699f4341acb6ded97bc63d4cc01f4938
     
     
       <p class="meta">
@@ -81,14 +93,493 @@
 
 
 
+<<<<<<< HEAD
 <time class='entry-date' datetime='2015-12-03T13:21:09-05:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2015</span></span> <span class='time'>1:21 pm</span></time>
+=======
+<time class='entry-date' datetime='2016-02-15T20:26:46-05:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>8:26 pm</span></time>
+>>>>>>> 22f22931699f4341acb6ded97bc63d4cc01f4938
         
       </p>
     
   </header>
 
 
+<<<<<<< HEAD
   <div class="entry-content"><p>&ldquo;Hello, World.&rdquo;</p>
+=======
+  <div class="entry-content"><p>I think my blog could do with a bit of focus for my next entry, so I decided to pick a more technical topic and hone in on something that was giving me trouble. I&rsquo;ve found Ember to be very challenging, but what&rsquo;s something more specific I&rsquo;d like to understand better? Hmm, I thought to myself, I wonder how authentication usually goes down in Ember. That might be worth exploring.</p>
+
+<p>The first thing I came across was a library called Ember Simple Auth, which allows you to do just what I wanted - implement a lightweight authentication system within your already existing Ember app.</p>
+
+<p>&ldquo;That&rsquo;s cool&rdquo; you say, &ldquo;but how does it work?&rdquo; Well, Skip, I&rsquo;m glad you asked. There are 4 key building blocks that come with Ember Simple Auth, once you install the library. You can also go clone a repo that contains a dummy app for easy reference with all the needed functionality already built-out, which is pretty thoughtful, and the dummy app includes an example for Facebook integration as well.</p>
+
+<p>So the building blocks roll out thusly: the session itself, a session store, authenticators, and authorizers.</p>
+
+<p>&ldquo;What do those things do?&rdquo; you ask, staring at me wide-eyed.</p>
+
+<p>Pretty simple, the session is as we generally understand it and is the main interface to the library. The session in the context of Ember Simple Auth contains all the methods for authenticating the session.</p>
+
+<p>The session store makes sure that the session state of the current user is persistent, so that nothing gets screwed up if you hard (or soft) refresh the page. It also provides the functionality of synchronizing the session across multiple tabs and pages, so that a user is logged in no matter where they are in their browser or on the site.</p>
+
+<p>Authenticators also authenticate the session, but they can support multiple ways of doing so, such as through Facebook, against the site&rsquo;s own server, etc.</p>
+
+<p>Authorizers take the data that is stored in a current session and generate more authorization data, which gets used in outgoing requests such as Ember Data requests, like what we saw with the Ember dynamic segments lab, for instance.</p>
+
+<p>So, to install just run:</p>
+
+<p><code>ember install ember-simple-auth</code></p>
+
+<p>inside your app.</p>
+
+<p>Once you do that, the usage is (on the surface) fairly simple. You can add this code to the application controller (app/controllers/application.js):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">&#39;ember&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">session</span><span class="o">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">inject</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="err">…</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Once we do that, we can set up some conditional logic in our template (i.e. application.hbs) to query the <code>isAuthenticated</code> property, like so:</p>
+
+<p><code>(handlebars code snippet for logic in the template)</code></p>
+
+<p>Since we have that, we need to configure the action for <code>invalidateSession</code> back where we started in our application controller. This action will be responsible for invalidating the session and logging the user out:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">&#39;ember&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">session</span><span class="o">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">inject</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">),</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="err">…</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">actions</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">invalidateSession</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">).</span><span class="nx">invalidate</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To actually authenticate the session, we can extend one of the authenticators that the library comes with, for example OmniAuth. This gets configured when we add a file to <code>app/authenticators</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// app/authenticators/oauth2.js</span>
+</span><span class='line'><span class="kr">import</span> <span class="nx">OAuth2PasswordGrant</span> <span class="nx">from</span> <span class="s1">&#39;ember-simple-auth/authenticators/oauth2-password-grant&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kr">export</span> <span class="k">default</span> <span class="nx">OAuth2PasswordGrant</span><span class="p">.</span><span class="nx">extend</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then we build a login form&hellip;</p>
+
+<p><img src="https://www.evernote.com/shard/s116/sh/14aa6c66-b07e-412d-8005-540f208abebf/8977ccda3d75aba8928873f0cdba25ef/res/76ae10df-25f5-4dc4-b878-49153e16735f/skitch.png?resizeSmall&width=832"></p>
+
+<p>And then the actual authentication of the login will be handled in a login controller, here:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// app/controllers/login.js</span>
+</span><span class='line'><span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">&#39;ember&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">session</span><span class="o">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">inject</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">),</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">actions</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">authenticate</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="kd">let</span> <span class="p">{</span> <span class="nx">identification</span><span class="p">,</span> <span class="nx">password</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getProperties</span><span class="p">(</span><span class="s1">&#39;identification&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">);</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">).</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;authenticator:oauth2&#39;</span><span class="p">,</span> <span class="nx">identification</span><span class="p">,</span> <span class="nx">password</span><span class="p">).</span><span class="k">catch</span><span class="p">((</span><span class="nx">reason</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;errorMessage&#39;</span><span class="p">,</span> <span class="nx">reason</span><span class="p">.</span><span class="nx">error</span> <span class="o">||</span> <span class="nx">reason</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">});</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>At this point, we pretty much just need to decide which routes are restricted to users only, so we go to any routes that only a user should be able to access and add the <code>AuthenticatedRouteMixin</code> to that route&rsquo;s .js file:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">//app/routes/users-only.js</span>
+</span><span class='line'><span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">&#39;ember&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="kr">import</span> <span class="nx">AuthenticatedRouteMixin</span> <span class="nx">from</span> <span class="s1">&#39;ember-simple-auth/mixins/authenticated-route-mixin&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">AuthenticatedRouteMixin</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We would need to do this for any route that is not accessible to non-logged in users. This code will then make it so the app redirects the user to a login page whenever they attempt to access the route with an unauthenticated session.</p>
+
+<p>I&rsquo;ll leave this blog post as a to be continued and plan to implement this in my own Ember app a little later this week, and write a follow up post about that. There is a lot more information on the library&rsquo;s <a href="https://github.com/simplabs/ember-simple-auth">github page</a>, and much more that you can do such as with authorizing outgoing API requests with an authorizer. To be continued!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/01/25/online-gaming-javascript/">Online Gaming: JavaScript, Multiplayer, and More!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-01-25T10:31:16-05:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>10:31 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Computer games have come a long way over the past few decades, to put it very mildly. Multiplayer gaming has become a focal point of the entire industry, at least in terms of big-budget PC games and console systems. There have also been huge advancements in games that make use of Adobe Flash Player and JavaScript to provide fun, addicting games that you can play right in your browser. Browser-based gaming has come a long way, to the point where we can even play games like Quake 3 directly in the browser using technology that compiles the code fast enough to play.</p>
+
+<p>Nowadays it&rsquo;s hard to imagine a game that doesn&rsquo;t implement some sort of web-based functionality, whether you&rsquo;re posting your high scores for Candy Crush, or you&rsquo;re playing a Battlefield 4 conquest mission in a 64-player free-for-all. Much of the time this functionality takes on the form of multiplayer gameplay, i.e. competing with other players remotely via a designated server for the game.</p>
+
+<p>So when did game designers first try to make games that were playable on a network? Well, the first several examples of actual multiplayer games actually pre-dated the Internet. It all began with a game called &lsquo;Empire&rsquo;, which was created in 1973 by a guy named John Daleske while he was a student at Iowa State University.</p>
+
+<p><img class="center" src="http://www.daleske.com/plato/images/empire3-title.png"></p>
+
+<p>Anyway, Empire allowed players to compete against one another in a space combat simulator over a network called PLATO. PLATO stands for Programmed Logic for Automatic Teaching Operations. It came about in around 1960 at the University of Illinois, as a system of graphics terminals (think early desktop PCs) supported by about a dozen networked mainframe computers. PLATO has a fascinating history that I don&rsquo;t want to delve into too deeply right now, but the development of the system formed the basis for some of our most beloved internet features. By 1976, PLATO had support for primitive versions of e-mail, chat rooms, instant messaging, remote screen sharing, and even emoticons. It also provided the basis for multiplayer gaming, starting with Empire, but expanding to many other types of games throughout the 70s and 80s. Empire went through several different iterations, and by the time Empire IV came out in 1977, they had even given players the ability to live chat with one another. Just to give you some idea of the gameplay, players did not have a mouse, and had to enter all commands via typing. The commands involved punching in coordinates for course changes, and firing weapons based on user-entered degree headings. The object of the game was to conquer the galaxy, naturally, and up to 30 players could be in the game at once, engaging in dogfights against one another to try and gain a foothold in the galactic battle.</p>
+
+<p>Now, skipping ahead to the 1990s, you had some major players come on the scene in terms of multiplayer gaming. Arguably the biggest title out of all of these was Doom, which if you&rsquo;re not familiar is a sci-fi / horror themed first-person shooter that came out in 1993. Some say it is the greatest PC game of all time, but that&rsquo;s a matter of opinion. Doom was created by my favorite programmer John Carmack (he also was behind Commander Keen, Wolfenstein 3D, and Quake), and the game was immediately notable for its markedly improved 3D graphics and exciting, imaginative gameplay and storyline. Anyway, as it relates to multiplayer gaming, Doom had a competitive online mode that ran over something called the DWANGO network, which was an online gaming platform launched in 1994. It became known right off the bat for its compatibility with Doom, and it served as a service to match up players looking to compete. Since this was before the actual Internet, the way it worked was players would pay a fee and run the DWANGO client software to connect to a DWANGO server by dialing a phone number in Houston, Texas. DWANGO is actually a thriving telecom company in Japan to this day. Despite the (to our standards) primitive interface, DWANGO actually allowed players to chat in a lobby, organize games, and connect to play Doom together, among many other games that soon came to be supported as well.</p>
+
+<p><img class="center" src="http://i.onionstatic.com/avclub/5159/94/16x9/960.jpg"></p>
+
+<p>So aside from Empire and Doom, what represented the next major leap forward in online gaming? Some say Quake, which was another first-person shooter that made online play an integral part of the product, rather than treating it as an add-on as with Doom, but let&rsquo;s talk about the year 2000 for a second. I would argue that the year 2000 ushered in the real modern epoch of online gaming, with two of the most popular PC titles ever made, ones that rival Doom in terms of legendary reputation amongst gamers. I&rsquo;m talking of course about Diablo 2 and Counter-Strike. Counter-Strike was actually a third-party mod of the game Half-Life. Even though the only way to play the game was online, it sold well over 4 million copies, along with countless copies that came free with the purchase of Half-Life. As for Diablo 2, it actually claimed a Guiness World Record for the fast selling computer game of all time, selling over a million copies in 2 weeks. Besides the speed at which it flew off the shelves, Diablo 2 was notable because it allowed a player to use their local player in online matches. Based on these two games, it was clear that competitive online multiplayer was here to stay.</p>
+
+<p><img class="center" src="http://cdn.akamai.steamstatic.com/steam/apps/10/0000000135.600x338.jpg?t=1447887426"></p>
+
+<p>So what else happened? Well, big budget titles have continued to come out of course, and as I said at the beginning, it&rsquo;s hard to imagine any current game or system that does not rely on the internet in some way as part of its core user experience. I sort of ran out of time to talk too much about browser-based gaming, but I thought Steven&rsquo;s example of playing Quake directly in the browser was very interesting, so I wanted to take a slightly closer look at that. If you go to quakejs.com, you&rsquo;ll find one brilliant programmer&rsquo;s project to port Quake 3 directly into JavaScript, using something called ioquake3, which is the engine that allows the programmer to work with, modify, and run the source code of that particular game.</p>
+
+<p>So, the game itself was written in C, which is interesting for a few reasons. C++ would have been the other, possibly more logical choice, but it only came out about a year before Quake 3 came out, so the developers had pretty much already done about half the work on the game before that actually came out. Speaking of the dev team, John Carmack led the way again, and he has stated that Quake 3 was his favorite game he ever worked on.</p>
+
+<p>At any rate, QuakeJS uses a compiler called Emscripten to take that C source code from the game, and compile it directly to JavaScript, which then of course lets you run the game in our fancy modern browsers. Pretty cool right? Since Quake 3 contains several dynamic libraries such as OpenGL for its graphics, Emscripten also contains versions of these libraries translated into pure JavaScript. Emscripten then links these in and relies upon current, powerful HTML5 technology to find the right counterpart. The fact that this one guy (his name is Anthony Pesch) figured out a way to completely port a game like Quake 3 into a browser using JavaScript is pretty impressive, and his write-up of how he did it goes way beyond my actual ability to discuss, but I encourage you to try out the game and check out his blog post to get a sense of how compilers work with JavaScript.</p>
+
+<p>Resources:</p>
+
+<p><a href="http://www.pcmag.com/article2/0,2817,2390917,00.asp">&ldquo;A Massive History of Multiplayer Online Gaming</a>
+<a href="http://ioquake3.org/">ioquake3 Engine</a><br>
+<a href="http://kripken.github.io/emscripten-site/">Emscripten Site</a><br>
+<a href="http://www.inolen.com/articles/compiling-quake-3-virtual-machines-to-javascript/">Anthony Pesch&rsquo;s Blog Post on porting Quake 3</a><br>
+<a href="http://www.quakejs.com/">QuakeJS</a><br></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/01/01/a-brief-history-of-nmap/">A Brief Intro to Nmap</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-01-01T09:31:35-05:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>9:31 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Nmap. What is it? Where did it come from? Who wrote it? And why is it so many movies?</p>
+
+<p>I am approaching this as someone who is obviously learning about Nmap (and the concept of scanning in general) for the first time, but as a result I hope this post functions as a completely basic introduction to the tool and the techniques for network scanning that it provides.</p>
+
+<p>Note: For easy installation of Nmap on Mac, go to <a href="https://Nmap.org/book/inst-macosx.html">https://Nmap.org/book/inst-macosx.html</a> and download and run the .dmg file.</p>
+
+<h2>WHAT IS NMAP?</h2>
+
+<p>Nmap is short for Network Mapper. It is essentially a toolbelt full of functionality that allows you to perform network scans. It was designed with the intent of quickly scanning large networks - picture using Nmap to scan hundreds of thousands of computers connected to the same network - or you can use it to gather information on only a few target computers.</p>
+
+<p>When most programmers hear the term Nmap, they immediately think of a tool for scanning servers and finding which ports are open, and subsequently attacking them. But Nmap can be used for good just as effectively as it can be used for evil.</p>
+
+<p><img class="center" src="http://25.media.tumblr.com/tumblr_m3bqcrcAaF1qabfx1o2_500.gif"></p>
+
+<p>Nmap is able to fulfill a variety of tasks, including security scans, figure out the services a host is running, &ldquo;fingerprinting&rdquo; the operating system and applications on a host, the type of firewall a host is using, or do an inventory of a local network. As I mentioned, it is one of the best ways for malicious hackers to determine what ports are open on a system, but it also works great for ethical hacking, in terms of discovering &lsquo;unlocked doors&rsquo; or security flaws on a network and finding ways to properly address those vulnerabilities. Different tasks require different permissions, and I&rsquo;ve read about Nmap being likened to a box of dynamite - it&rsquo;s incredibly powerful, but if you don&rsquo;t know what you&rsquo;re doing you can blow your foot off.</p>
+
+<p><img class="center" src="http://www.filmfodder.com/tv/lost/archives/Lost_Arzt.jpg"></p>
+
+<p>You can&rsquo;t run around scannin' everything you dang please! Security professionals will not appreciate your unauthorized probings of their networks. However, if you have permission, and you know what you&rsquo;re doing, Nmap has the ability to scan huge networks the serve hundreds of thousands of computers, or you can scan your family&rsquo;s computers when you&rsquo;re connected to your WiFi network at home.</p>
+
+<p>Nmap works by sending specially crafted data packets to ports, and analyzing the responses from ones that are open. The metaphor I came across most frequently is that it&rsquo;s like sending out mass mailers to customers. You place a brochure in every mailbox in the neighborhood, and most people ignore it (closed ports). However, a few people reply to the brochure, and you can then analyze their responses and pay special attention to those, and just forget about the people who ignored your attempts to reach out.</p>
+
+<h2>Who invented it?</h2>
+
+<p><img class="center" src="https://pbs.twimg.com/profile_images/1360368660/Defcon18-Fyodor-Presenting-573x573.jpg"></p>
+
+<p>This is Gordon Lyon, the inventor of Nmap. He&rsquo;s pretty smart. He often operates online under the alias of Fyodor Vaskovich, in honor of Dostoevsky, and he&rsquo;s incredibly active in the ethical hacking community even to this day. He released Nmap (open source of course) in 1997, and has spent the past couple of decades developing it and other security-related projects. He even wrote a thriller novel with highly accurate depictions of hacking, and appeared in a comic book where he saves a kidnapped Nmap developer from a criminal organization that was intent on forcing him to hack for evil.</p>
+
+<p><img class="center" src="http://fpix.us/pics_me/clustermind_pp44.jpg"></p>
+
+<p>Lastly, one of the coolest things about Nmap is the number of movies it has appeared in. As Steven mentioned when he gave us a brief intro to Nmap, at some point Hollywood and other film industries decided Nmap was the most hacker-like thing they could put on screen to give the movie that touch of realism, and they&rsquo;re not wrong.</p>
+
+<p>Possibly the most famous example comes from the Matrix Reloaded, where Trinity uses Nmap to find a vulnerable SSH server to hack the city power grid and help Neo out. She even uses a realworld loophole to exploit the server.</p>
+
+<p><img class="center" src="http://linuxzone.es/app/uploads/2011/08/matrix-linux.png"></p>
+
+<p>You can check out the other movies it has appeared in here, and generally learn more about Nmap on its official site, www.nmap.org.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/12/12/has-many-loves-belongs-to-ruby/">My Heart: Has Many Loves; Belongs to Ruby</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-12-12T14:21:31-05:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>2:21 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For my blog I decided to write a little about the has many / belongs to relationships between classes. I decided to explore this concept in the context of a side project that I&rsquo;ve been tinkering with. I&rsquo;m trying to build an app that should ultimately predict the outcome of NHL games, based on a variety of factors. This should include such factors as who the starting goalies will be, how the teams have performed against each other historically, whether the opposing team has a player who repeatedly scores against the specific opposing goalie, and so on. The app is called the Hockey Oracle and it is definitely going to take the fantasy sports market by storm.</p>
+
+<p>At its most basic level, an individual player belongs to a team. We give the player a <code>team</code> <code>attr_accessor</code>, and then subsequently set that team attribute to an instance of the <code>Team</code> class. On the other end, a team has many players. We enact this relationship by giving teams a goalies or players property upon initialization that is set to an array of goalie or player instances. We add goalies and players to their respective arrays by defining an instance method within the team class called <code>#add_goalie</code> or <code>#add_player</code>.</p>
+
+<p>Anyhoo, I decided to start by setting up three basic classes: <code>Goalie</code>, <code>Skater</code>, and <code>Team</code>. Goalies and Skaters (aka simply Players) belong to a team, while each instance of the <code>Team</code> class &lsquo;has many&rsquo; goalies and skaters. I also created a parent class, <code>Player</code>, which I will use for common methods that goalies and skaters can both inherit.</p>
+
+<p>So let&rsquo;s first take a look at our Goalie class:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Goalie</span> <span class="o">&lt;</span> <span class="no">Player</span>
+</span><span class='line'>  <span class="kp">attr_accessor</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:team</span><span class="p">,</span> <span class="ss">:reflexes</span><span class="p">,</span> <span class="ss">:athleticism</span><span class="p">,</span> <span class="ss">:puck_control</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># these parameters might be good representing a hash with more specific attributes as keys and a number rating as values</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">team</span><span class="o">=</span><span class="kp">nil</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+</span><span class='line'>      <span class="vi">@team</span> <span class="o">=</span> <span class="n">team</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="n">args</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">property</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
+</span><span class='line'>          <span class="nb">self</span><span class="o">.</span><span class="n">public_send</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">property</span><span class="si">}</span><span class="s2">=&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="k">if</span> <span class="n">team</span>
+</span><span class='line'>          <span class="n">team</span><span class="o">.</span><span class="n">add_goalie</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">team_name</span>
+</span><span class='line'>      <span class="nb">self</span><span class="o">.</span><span class="n">team</span><span class="o">.</span><span class="n">name</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I&rsquo;m doing some fun Steven-inspired meta-programming in my initialize method, which lets me take in a hash of the goalie&rsquo;s attributes and corresponding ratings as args. Each attribute gets set to an integer corresponding to their actual perceived skill in that area based on scouting reports. I stole the attribute designations from NHL 16. But I digress.</p>
+
+<p>The first two arguments are more important for our discussion right now: name, which is required, and team, which is optional and will be nil if you don&rsquo;t feel like setting it right away, or the goalie is a free agent or something like that. But let&rsquo;s focus on team. Assuming the goalie has a team, which would be an already-created instance of the Team class, and also assuming you pass it in as an argument instead of letting it remain as nil.</p>
+
+<p>So how do we get a goalie associated with a team? Well, first we had to make sure our Team class was set up. This meant giving team objects their own proper initialize method:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Team</span>
+</span><span class='line'>  <span class="kp">attr_accessor</span> <span class="ss">:name</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="vc">@@roster_count</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+</span><span class='line'>      <span class="vi">@skaters</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>      <span class="vi">@goalies</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">add_goalie</span><span class="p">(</span><span class="n">goalie</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@goalies</span> <span class="o">&lt;&lt;</span> <span class="n">goalie</span>
+</span><span class='line'>      <span class="n">goalie</span><span class="o">.</span><span class="n">team</span> <span class="o">=</span> <span class="nb">self</span>
+</span><span class='line'>      <span class="vc">@@roster_count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="k">def</span> <span class="nf">add_skater</span><span class="p">(</span><span class="n">skater</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@skaters</span> <span class="o">&lt;&lt;</span> <span class="n">skater</span>
+</span><span class='line'>      <span class="n">skater</span><span class="o">.</span><span class="n">team</span> <span class="o">=</span> <span class="nb">self</span>
+</span><span class='line'>      <span class="vc">@@roster_count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">goalies</span>
+</span><span class='line'>      <span class="vi">@goalies</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">goalie</span><span class="o">|</span>
+</span><span class='line'>          <span class="n">goalie</span><span class="o">.</span><span class="n">name</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">skaters</span>
+</span><span class='line'>      <span class="vi">@skaters</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">skater</span><span class="o">|</span>
+</span><span class='line'>          <span class="n">skater</span><span class="o">.</span><span class="n">name</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I set up a class variable, <code>@@roster_count</code>, so we can keep track of the total number of players on a given team, which will come in handy later. Then in my initialize method for <code>Team</code>, I added empty arrays for skaters and goalies. The next thing is, how do we get a goalie to be on a certain team, and enact that relationship? Let&rsquo;s write an <code>#add_goalie</code> method that takes in an argument of an already-created instance of goalie.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">add_goalie</span><span class="p">(</span><span class="n">goalie</span><span class="p">)</span>
+</span><span class='line'>  <span class="vi">@goalies</span> <span class="o">&lt;&lt;</span> <span class="n">goalie</span>
+</span><span class='line'>  <span class="n">goalie</span><span class="o">.</span><span class="n">team</span> <span class="o">=</span> <span class="nb">self</span>
+</span><span class='line'>  <span class="vc">@@roster_count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Once we get that down, we can create team objects. Say we want to make the New York Rangers.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rangers</span> <span class="o">=</span> <span class="no">Team</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;New York Rangers&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, let&rsquo;s create our new goalie. Superstar Henrik Lundqvist, of course. I&rsquo;m not going to worry about his specific attributes like reflexes and puck control right now, since I just want to focus on bringing him into existence as an instance of the Goalie class, and adding him to the Rangers.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">lundqvist</span> <span class="o">=</span> <span class="no">Goalie</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Henrik Lundqvist&quot;</span><span class="p">,</span> <span class="n">rangers</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Nice, we passed in our team object, <code>rangers</code>, as the argument for Lundqvist&rsquo;s team. Now &lsquo;lundqvist&rsquo; belongs to one team, and that team can have many goalies.</p>
+
+<p>The reason this works is because we are actually calling the <code>#add_goalie</code> method on the team argument at the moment that we initialize a new goalie. That method gets called on team, the goalie is shoveled into the team&rsquo;s goalies array, goalie.team is set to self (since self is the team in the context of that instance method), and we also make sure to increment the <code>@@roster_count</code> by one. The methods for adding a skater looks exactly the same, except for different naming of variables, and we run the <code>#add_skater</code> method in the initialize for that class as well.</p>
+
+<p>In this way, I&rsquo;ve set up the preliminary relationship of my hockey prediction app, where teams have many skaters and goalies, and are able to keep track of them and add new ones with a simple adding method, and goalies and skaters belong to a specific team, which can be set based on the code in the two initialize methods for those two classes when each object gets created, assuming you pass in a instance of team as one of the arguments (but you don&rsquo;t have to, since it&rsquo;s easy to set it later).</p>
+
+<p>There are a ton of other aspects to this complex interplay between related classes, but I think this gives an overview of how the relationship gets established at the most basic level, and in the context of my own app that I&rsquo;m working on. I am looking forward to expanding on this as I work to build out my software, and explore the multitude of ways that related classes can reference each other and work together.</p>
+
+<p>Thank you for listening!</p>
+
+<p><img class="center" src="https://nesncom.files.wordpress.com/2014/01/835735616-1.gif?w=1136&h=638"></p>
+>>>>>>> 22f22931699f4341acb6ded97bc63d4cc01f4938
 </div>
   
   
@@ -109,7 +600,23 @@
   <ul id="recent_posts">
     
       <li class="post">
+<<<<<<< HEAD
         <a href="/blog/2015/12/03/my-first-post-on-octopress/">My First Post on Octopress</a>
+=======
+        <a href="/blog/2016/02/15/tbd-technical-blog-entry/">Using Ember Simple Auth to Add Sessions to Your Ember App</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/25/online-gaming-javascript/">Online Gaming: JavaScript, Multiplayer, and More!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/01/a-brief-history-of-nmap/">A Brief Intro to Nmap</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/12/has-many-loves-belongs-to-ruby/">My Heart: Has Many Loves; Belongs to Ruby</a>
+>>>>>>> 22f22931699f4341acb6ded97bc63d4cc01f4938
       </li>
     
   </ul>
@@ -125,7 +632,11 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
+<<<<<<< HEAD
   Copyright &copy; 2015 - Sam Vary -
+=======
+  Copyright &copy; 2016 - Sam Vary -
+>>>>>>> 22f22931699f4341acb6ded97bc63d4cc01f4938
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

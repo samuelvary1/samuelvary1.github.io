@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>A Brief Intro to Nmap - Don't Panic!</title>
+  <meta name="author" content="Sam Vary">
+
+  
+  <meta name="description" content="Nmap. What is it? Where did it come from? Who wrote it? And why is it so many movies? I am approaching this as someone who is obviously learning &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://samuelvary1.github.io/blog/2016/01/01/a-brief-history-of-nmap/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Don't Panic!" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Don't Panic!</a></h1>
+  
+    <h2>Sam Vary's blog about programming and life in general.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="samuelvary1.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">A Brief Intro to Nmap</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-01-01T09:31:35-05:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>9:31 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Nmap. What is it? Where did it come from? Who wrote it? And why is it so many movies?</p>
+
+<p>I am approaching this as someone who is obviously learning about Nmap (and the concept of scanning in general) for the first time, but as a result I hope this post functions as a completely basic introduction to the tool and the techniques for network scanning that it provides.</p>
+
+<p>Note: For easy installation of Nmap on Mac, go to <a href="https://Nmap.org/book/inst-macosx.html">https://Nmap.org/book/inst-macosx.html</a> and download and run the .dmg file.</p>
+
+<h2>WHAT IS NMAP?</h2>
+
+<p>Nmap is short for Network Mapper. It is essentially a toolbelt full of functionality that allows you to perform network scans. It was designed with the intent of quickly scanning large networks - picture using Nmap to scan hundreds of thousands of computers connected to the same network - or you can use it to gather information on only a few target computers.</p>
+
+<p>When most programmers hear the term Nmap, they immediately think of a tool for scanning servers and finding which ports are open, and subsequently attacking them. But Nmap can be used for good just as effectively as it can be used for evil.</p>
+
+<p><img class="center" src="http://25.media.tumblr.com/tumblr_m3bqcrcAaF1qabfx1o2_500.gif"></p>
+
+<p>Nmap is able to fulfill a variety of tasks, including security scans, figure out the services a host is running, &ldquo;fingerprinting&rdquo; the operating system and applications on a host, the type of firewall a host is using, or do an inventory of a local network. As I mentioned, it is one of the best ways for malicious hackers to determine what ports are open on a system, but it also works great for ethical hacking, in terms of discovering &lsquo;unlocked doors&rsquo; or security flaws on a network and finding ways to properly address those vulnerabilities. Different tasks require different permissions, and I&rsquo;ve read about Nmap being likened to a box of dynamite - it&rsquo;s incredibly powerful, but if you don&rsquo;t know what you&rsquo;re doing you can blow your foot off.</p>
+
+<p><img class="center" src="http://www.filmfodder.com/tv/lost/archives/Lost_Arzt.jpg"></p>
+
+<p>You can&rsquo;t run around scannin' everything you dang please! Security professionals will not appreciate your unauthorized probings of their networks. However, if you have permission, and you know what you&rsquo;re doing, Nmap has the ability to scan huge networks the serve hundreds of thousands of computers, or you can scan your family&rsquo;s computers when you&rsquo;re connected to your WiFi network at home.</p>
+
+<p>Nmap works by sending specially crafted data packets to ports, and analyzing the responses from ones that are open. The metaphor I came across most frequently is that it&rsquo;s like sending out mass mailers to customers. You place a brochure in every mailbox in the neighborhood, and most people ignore it (closed ports). However, a few people reply to the brochure, and you can then analyze their responses and pay special attention to those, and just forget about the people who ignored your attempts to reach out.</p>
+
+<h2>Who invented it?</h2>
+
+<p><img class="center" src="https://pbs.twimg.com/profile_images/1360368660/Defcon18-Fyodor-Presenting-573x573.jpg"></p>
+
+<p>This is Gordon Lyon, the inventor of Nmap. He&rsquo;s pretty smart. He often operates online under the alias of Fyodor Vaskovich, in honor of Dostoevsky, and he&rsquo;s incredibly active in the ethical hacking community even to this day. He released Nmap (open source of course) in 1997, and has spent the past couple of decades developing it and other security-related projects. He even wrote a thriller novel with highly accurate depictions of hacking, and appeared in a comic book where he saves a kidnapped Nmap developer from a criminal organization that was intent on forcing him to hack for evil.</p>
+
+<p><img class="center" src="http://fpix.us/pics_me/clustermind_pp44.jpg"></p>
+
+<p>Lastly, one of the coolest things about Nmap is the number of movies it has appeared in. As Steven mentioned when he gave us a brief intro to Nmap, at some point Hollywood and other film industries decided Nmap was the most hacker-like thing they could put on screen to give the movie that touch of realism, and they&rsquo;re not wrong.</p>
+
+<p>Possibly the most famous example comes from the Matrix Reloaded, where Trinity uses Nmap to find a vulnerable SSH server to hack the city power grid and help Neo out. She even uses a realworld loophole to exploit the server.</p>
+
+<p><img class="center" src="http://linuxzone.es/app/uploads/2011/08/matrix-linux.png"></p>
+
+<p>You can check out the other movies it has appeared in here, and generally learn more about Nmap on its official site, www.nmap.org.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sam Vary</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-01-01T09:31:35-05:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>9:31 am</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://samuelvary1.github.io/blog/2016/01/01/a-brief-history-of-nmap/" data-via="" data-counturl="http://samuelvary1.github.io/blog/2016/01/01/a-brief-history-of-nmap/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/12/12/has-many-loves-belongs-to-ruby/" title="Previous Post: My Heart: Has Many Loves; Belongs to Ruby">&laquo; My Heart: Has Many Loves; Belongs to Ruby</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/01/25/online-gaming-javascript/" title="Next Post: Online Gaming: JavaScript, Multiplayer, and more!">Online Gaming: JavaScript, Multiplayer, and more! &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/02/15/tbd-technical-blog-entry/">Using Ember Simple Auth to Add Sessions to Your Ember App</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/25/online-gaming-javascript/">Online Gaming: JavaScript, Multiplayer, and More!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/01/a-brief-history-of-nmap/">A Brief Intro to Nmap</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/12/has-many-loves-belongs-to-ruby/">My Heart: Has Many Loves; Belongs to Ruby</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Sam Vary -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
